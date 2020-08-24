@@ -1,0 +1,17 @@
+from typing import List
+
+import pytube
+from pytube import YouTube, Stream
+
+yt = YouTube('https://www.youtube.com/watch?v=yC1g1bhC9Eo')
+print(yt.title)
+print(yt.thumbnail_url)
+streamsAll = yt.streams
+pr = yt.streams.filter(progressive=True)
+print("Progressive videos: ", pr)
+for i in range(len(streamsAll)):
+    print(streamsAll[i])
+first = yt.streams.first()
+print("First video 720p",first)
+first.download()
+print("Download Complete")
